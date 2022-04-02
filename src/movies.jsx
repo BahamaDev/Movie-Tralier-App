@@ -15,7 +15,9 @@ const Movies = ({ result }) => {
       <div>
         {Search.map((movie) => {
           //   console.log(movie);
-          return <Movie key={movie.imdbID} {...movie}></Movie>;
+          return <Movie key={movie.imdbID} {...movie}></Movie>
+          
+          ;
         })}
       </div>
     </>

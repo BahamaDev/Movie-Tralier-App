@@ -14,21 +14,22 @@ const options = {
 
 function App() {
   const [result, setResult] = useState({});
-
   const [inputValue, setInputValue] = useState("");
-  const [searchInURL, setsearchInURL] = useState();
+  const [searchInURL, setSearchInURL] = useState('dolly');
   // const searchInURL = inputValue !== "" ? inputValue : "dolly";
 
   const setSearch = () => {
-    let a = inputValue !== "" ? inputValue : "dolly";
-    setsearchInURL(a);
-    console.log("setSearch fired");
+    console.log("InputValue recieved in setSearch: " + inputValue);
+    const a = inputValue !== "" || " " ? inputValue : "dolly";
+    setSearchInURL(a);
+    console.log("setSearch fired with : " + a + " as setSearchInURL");
+    fetchMovies();
   };
 
-  const recieveInput = (e) => {
-    e.preventDefault();
-    setInputValue(e.target.value);
-  };
+  //Recieves typed input sets it as inputValue
+  // const recieveInput = () => {
+  //   console.log("recievedInput: " + inputValue);
+  // };
 
   const fetchMovies = async () => {
     try {
@@ -41,11 +42,12 @@ function App() {
       // console.log(searchResults);
       // setMovies(searchResults.Search);
       setResult(movies);
-      console.log("fetchMovie fired");
+      console.log("fetchMovie fired " + searchInURL);
     } catch (error) {}
   };
 
   useEffect(() => {
+    console.log("useEffect fired");
     fetchMovies();
     console.log(result);
   }, []);
@@ -60,12 +62,6 @@ function App() {
     );
   }
 
-  ///Sets Search and Fectches Movie using that search value.
-  const searchMovies = () => {
-    setSearch();
-    fetchMovies();
-  };
-
   return (
     <main>
       <input
@@ -73,9 +69,9 @@ function App() {
         className="test-input"
         placeholder="testinput"
         value={inputValue}
-        onChange={(e) => recieveInput(e)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
-      <button onClick={searchMovies}>Search</button>
+      <button onClick={(e) => setSearch(e)}>Search</button>
       {/* <Navbar /> */}
       <Movies result={result} />
     </main>

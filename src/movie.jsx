@@ -1,4 +1,5 @@
 import React from "react";
+import FavIcon from "./favicon";
 
 const Movie = ({ imdbID, Poster, Title, Year }) => {
   return (
@@ -9,6 +10,7 @@ const Movie = ({ imdbID, Poster, Title, Year }) => {
         <h3 className="card-year">Released: {Year}</h3>
         {/* <p className="card-description"></p> */}
         {/* <h3>{imdbID}</h3> */}
+        <FavIcon />
       </article>
     </>
   );
