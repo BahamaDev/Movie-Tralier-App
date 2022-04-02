@@ -18,6 +18,6 @@ const FavIcon = () => {
         {fav.favText}
       </button>
     </>
-  );
+  );giut 
 };
 export default FavIcon;
