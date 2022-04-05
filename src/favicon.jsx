@@ -1,23 +1,44 @@
 import React from "react";
 import { useState } from "react";
+// import { filledcheck } from "public/filledcheck.png";
 
 const FavIcon = () => {
-  const [fav, setFav] = useState({ favStatus: "True", favText: "Favorite" });
+  // const [text, setText] = useState("notFav");
 
-  const handleClick = ({ ...fav }) => {
-    if (fav.favStatus === "True") {
-      setFav({ ...fav, favText: "Favorite" });
+  const [favStatus, setFavStatus] = useState({
+    status: "False",
+    icon: `material-icons-outlined`,
+  });
+
+  const handleFavClick = () => {
+    const { status, icon } = favStatus;
+    if (status === "False") {
+      setFavStatus({ status: "True", icon: `material-icons` });
     } else {
-      setFav({ favStatus: "False", favText: "NotFav" });
+      setFavStatus({
+        status: "False",
+        icon: `material-icons-outlined`,
+      });
     }
+    console.log(status, icon);
   };
+
+  // const handleClick = () => {
+  //   if (text === "notFav") {
+  //     setText("Fav");
+  //   } else {
+  //     setText("notFav");
+  //   }
+  // };
 
   return (
     <>
-      <button type="button" onClick={handleClick}>
-        {fav.favText}
-      </button>
+      <div>
+        <span>
+          <img src="public/filledcheck.png" />
+        </span>
+      </div>
     </>
-  );giut 
+  );
 };
 export default FavIcon;

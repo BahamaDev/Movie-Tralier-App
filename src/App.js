@@ -15,7 +15,7 @@ const options = {
 function App() {
   const [result, setResult] = useState({});
   const [inputValue, setInputValue] = useState("");
-  const [searchInURL, setSearchInURL] = useState('dolly');
+  const [searchInURL, setSearchInURL] = useState("dolly");
   // const searchInURL = inputValue !== "" ? inputValue : "dolly";
 
   const setSearch = () => {
@@ -64,14 +64,18 @@ function App() {
 
   return (
     <main>
-      <input
-        type="text"
-        className="test-input"
-        placeholder="testinput"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button onClick={(e) => setSearch(e)}>Search</button>
+      <div className="navbar">
+        {" "}
+        <input
+          type="text"
+          className="test-input"
+          placeholder="testinput"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={(e) => setSearch(e)}>Search</button>
+      </div>
+
       {/* <Navbar /> */}
       <Movies result={result} />
     </main>
