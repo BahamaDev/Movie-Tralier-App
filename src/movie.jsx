@@ -1,10 +1,10 @@
 import React from "react";
 import FavIcon from "./favicon";
 
-const Movie = ({ imdbID, Poster, Title, Year }) => {
+const Movie = ({ imdbID, Poster, Title, Year, goToMovie }) => {
   return (
     <>
-      <article className="movie-card">
+      <article onClick={()=>goToMovie(imdbID)} className="movie-card">
         <img className="movie-card-poster" src={Poster} alt="" />
         <section className="movie-card-info">
           {" "}
@@ -15,8 +15,6 @@ const Movie = ({ imdbID, Poster, Title, Year }) => {
           </div>
         </section>
 
-        {/* <p className="card-description"></p> */}
-        {/* <h3>{imdbID}</h3> */}
       </article>
     </>
   );

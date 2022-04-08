@@ -1,8 +1,10 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import { TiThumbsUp } from "react-icons/ti";
 
 import Movies from "./movies";
 import Navbar from "./navbar";
+import SelectedMovie from"./seleted-movie"
 
 const options = {
   method: "GET",
@@ -16,7 +18,7 @@ function App() {
   const [result, setResult] = useState({});
   const [inputValue, setInputValue] = useState("");
   const [searchInURL, setSearchInURL] = useState("dolly");
-  // const searchInURL = inputValue !== "" ? inputValue : "dolly";
+  const[selectedMovie, setSelectedMovie] = useState()
 
   const setSearch = () => {
     console.log("InputValue recieved in setSearch: " + inputValue);
@@ -25,11 +27,6 @@ function App() {
     console.log("setSearch fired with : " + a + " as setSearchInURL");
     fetchMovies();
   };
-
-  //Recieves typed input sets it as inputValue
-  // const recieveInput = () => {
-  //   console.log("recievedInput: " + inputValue);
-  // };
 
   const fetchMovies = async () => {
     try {
@@ -62,22 +59,33 @@ function App() {
     );
   }
 
+const goToMovie = (id) => {
+  console.log(id);
+  setSelectedMovie(id)
+  
+};
+
+
+
+
   return (
     <main>
       <div className="navbar">
-        {" "}
-        <input
-          type="text"
-          className="test-input"
-          placeholder="testinput"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <button onClick={(e) => setSearch(e)}>Search</button>
+        <div className="input-section">
+          <input
+            type="text"
+            className="text-input"
+            placeholder="Enter search..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button onClick={(e) => setSearch(e)}>Search</button>
+        </div>
       </div>
 
       {/* <Navbar /> */}
-      <Movies result={result} />
+      <Movies result={result} goToMovie={goToMovie} />
+      <SelectedMovie result={result} selectedMovie={selectedMovie} />
     </main>
   );
 }

@@ -1,41 +1,34 @@
 import React from "react";
 import { useState } from "react";
-// import { filledcheck } from "public/filledcheck.png";
+import { TiHeartOutline, TiHeart } from "react-icons/ti";
 
 const FavIcon = () => {
   // const [text, setText] = useState("notFav");
 
   const [favStatus, setFavStatus] = useState({
     status: "False",
-    icon: `material-icons-outlined`,
+    icon: <TiHeartOutline />,
   });
 
   const handleFavClick = () => {
     const { status, icon } = favStatus;
     if (status === "False") {
-      setFavStatus({ status: "True", icon: `material-icons` });
+      setFavStatus({ status: "True", icon: <TiHeart /> });
     } else {
       setFavStatus({
         status: "False",
-        icon: `material-icons-outlined`,
+        icon: <TiHeartOutline />,
       });
     }
     console.log(status, icon);
   };
 
-  // const handleClick = () => {
-  //   if (text === "notFav") {
-  //     setText("Fav");
-  //   } else {
-  //     setText("notFav");
-  //   }
-  // };
-
   return (
     <>
-      <div>
-        <span>
-          <img src="public/filledcheck.png" />
+      {" "}
+      <div className="movie-card-icon">
+        <span onClick={handleFavClick} className="fav-button">
+          {favStatus.icon}
         </span>
       </div>
     </>

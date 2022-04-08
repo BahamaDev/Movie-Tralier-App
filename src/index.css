@@ -1,20 +1,83 @@
+:root {
+  --comp-color: rgb(225, 156, 6);
+  --main-color: rgb(12, 12, 30);
+  --main-text: white;
+  --comp-text: rgb(205, 205, 205);
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+
 }
 
 
 body {
-  background-color: rgb(12, 12, 30);
-  color: white;
+  background-color: var(--main-color);
+  color: var(--main-text);
   font-family: 'Lato', sans-serif;
 
 }
 
 .navbar {
+  display: flex;
+
+  height: 80px;
+  /* background-color: rgb(112, 112, 112); */
+  align-items: flex-end;
+  justify-content: end;
+}
+
+
+.input-section {
+  font-size: 1.2rem;
+  background-color: var(--comp-color);
+  height: auto;
+  /* border: 2px white solid; */
+  margin-right: 85px
+}
+
+.input-section input {
   height: 50px;
-  background-color: rgb(112, 112, 112);
+  width: 200;
+  max-width: 400;
+  font-size: 1.2rem;
+  border: none;
+  padding-left: 5px;
+}
+
+.input-section button {
+  height: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  width: 80px;
+  background-color: var(--comp-color);
+  border: none;
+}
+
+.movies-header {
+  display: flex;
+  height: 80px;
+  font-size: 2rem;
+  margin: 0 auto;
+  padding: 30px 5px;
+  align-items: center;
+  /* border: 1px white solid; */
+}
+
+
+.movies-count {
+  background-color: var(--comp-color);
+  margin: 5px;
+  width: 100px;
+  /* height: 100%; */
+  border-radius: 50%;
+  text-align: center;
+
 }
 
 .movies-list {
@@ -35,7 +98,7 @@ body {
   grid-template-rows: 80% 20%;
   max-width: 350px;
   height: 500px;
-  border: 1px solid rgb(205, 205, 205);
+  border: 1px solid var(--comp-text);
   width: 100%;
   grid-template-areas: "movie-card-poster", "movie-card-info";
 
@@ -57,7 +120,7 @@ body {
   grid-area: "movie-card-info";
   margin: 0;
   padding: 0;
-  background-color: rgb(225, 156, 6)
+  background-color: var(--comp-color)
 }
 
 .movie-card-title {
@@ -66,11 +129,9 @@ body {
   flex: 1 0 100%;
   height: 60%;
   /* border: 1px white solid; */
-
-
-
-
 }
+
+
 
 .movie-card-year {
   font-weight: 300;
@@ -86,21 +147,30 @@ body {
 .movie-card-icon {
   display: flex;
   /* border: 1px orange solid; */
-  float: inline-end;
+  /* float: inline-end; */
   width: 30%;
   height: 35%;
   justify-content: end;
   align-items: center;
   padding-right: 7px;
-
-
-
-
+  /* border: 1px white solid */
 }
 
 .fav-button {
+  width: auto;
+  height: auto;
+  font-size: 1.5rem;
+  /* border: 1px rgb(162, 0, 255) solid; */
+}
 
-  width: 70px;
-  height: 100%;
-  background-color: 1px orange solid;
+.selected-movie-page {
+
+  background-color: grey;
+  height: 800px;
+
+}
+
+.selected-card-poster {
+  height: 4rem;
+
 }
