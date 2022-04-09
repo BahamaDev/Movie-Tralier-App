@@ -22,18 +22,30 @@ const SelectedMovie = ({ result, selectedMovie }) => {
     <>
       {
         <div className="selected-movie-page">
-          <img
-            className="selected-card-poster"
-            src={theMovie.Poster}
-            alt="poster_image"
-          />
+          <div className="selected-card-poster">
+            {" "}
+            <img
+              className="selected-card-image"
+              src={theMovie.Poster}
+              alt="poster_image"
+            />
+          </div>
+
           <section className="selected-card-info">
             {" "}
             <h2 className="selected-card-title">{theMovie.Title}</h2>
             <h3 className="selected-card-year">Released: {theMovie.Year}</h3>
-            <div className="selected-card-icon">
-              <FavIcon />
+            <div className="selected-card-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+              ratione consequatur sunt eaque cupiditate quis itaque optio in sed
+              enim deserunt modi vero, pariatur magnam quibusdam, impedit
+              repudiandae, necessitatibus ducimus? Reprehenderit enim,
+              doloremque corporis maiores assumenda quas, est magni ratione
+              nihil accusantium voluptatum quidem iste, fugiat sit omnis
+              molestias nam.
             </div>
+            {/* <FavIcon /> */}
+            <button className="play-button">WATCH MOVIE NOW</button>
           </section>
         </div>
       }

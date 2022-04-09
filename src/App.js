@@ -69,7 +69,7 @@ const goToMovie = (id) => {
 
 
   return (
-    <main>
+    <main className="app-wrapper">
       <div className="navbar">
         <div className="input-section">
           <input

@@ -22,9 +22,13 @@ body {
 
 }
 
+.app-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .navbar {
   display: flex;
-
   height: 80px;
   /* background-color: rgb(112, 112, 112); */
   align-items: flex-end;
@@ -87,7 +91,7 @@ body {
   grid-template-rows: auto;
   justify-items: center;
   align-items: center;
-  width: 90vw;
+  /* width: 90vw; */
   gap: 20px 10px;
   margin: 10px auto;
   ;
@@ -164,13 +168,85 @@ body {
 }
 
 .selected-movie-page {
-
+  display: grid;
   background-color: grey;
   height: 800px;
+  max-width: 1400px;
+  grid-template-columns: 1fr 1fr;
+
+  grid-template-areas:
+    "selected-card-poster selected-card-info"
+  ;
+  margin: 0 auto;
+  padding-top: 40px;
+  align-items: center;
+  justify-content: center;
+
 
 }
 
+.selected-card-info {
+  display: grid;
+  grid-area: selected-card-info;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "selected-card-title"
+    "selected-card-year"
+    "selected-card-description"
+    "play-button";
+}
+
+
 .selected-card-poster {
-  height: 4rem;
+  display: flex;
+  height: auto;
+  grid-area: selected-card-poster;
+
+  width: 90%;
+}
+
+
+.selected-card-poster>img {
+width: 60%;
+  max-width: 400px;
+  min-width: 200px;
+  height: auto;
+  justify-self: center;
+  margin: 0 auto;
+}
+
+.selected-card-title {
+  font-size: 3.5rem;
+  grid-area: selected-card-title;
+  /* border: 1px solid white; */
+  margin: 10px 0px;
+}
+
+.selected-card-year {
+  font-size: 1.7rem;
+  grid-area: selected-card-year;
+  font-weight: 400;
+  color: var(--main-color)
+}
+
+.selected-card-description {
+  grid-area: selected-card-description;
+  font-size: 1.7rem;
+  word-wrap: wrap;
+  line-height: 1.5;
+  margin: 10px 2px;
+
+}
+
+.play-button {
+  grid-area: 'play-button';
+  width: 90%;
+  height: 70px;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--comp-color);
+  border: none;
+  margin: 10px 0px;
 
 }
