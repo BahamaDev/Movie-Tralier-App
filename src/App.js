@@ -1,25 +1,14 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-
 import Movies from "./movies";
 import Navbar from "./navbar";
 import SelectedMovie from "./selected-movie";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MoviesDem from "./tmdbtest";
 
 function App() {
   const [searchInURL, setSearchInURL] = useState("Dolly");
 
-  // const options = {
-  //   method: "GET",
-  //   url: "https://movie-database-alternative.p.rapidapi.com/",
-  //   params: { s: searchInURL, r: "json", page: "10" },
-  //   headers: {
-  //     "X-RapidAPI-Host": "movie-database-alternative.p.rapidapi.com",
-  //     "X-RapidAPI-Key": "a64941e9cfmsh80fe0d9c19ee8fbp1f7dcfjsnc7e33ba4b6dd",
-  //   },
-  //
   const [result, setResult] = useState({
     page: 0,
     total_pages: 0,
@@ -38,23 +27,7 @@ function App() {
     getMovies();
   };
 
-  // const fetchMovies = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       // `https://movie-database-alternative.p.rapidapi.com/?s=${searchInURL}&r=json&page=`,
-  //       // options
-
-  //       `https://movie-database-alternative.p.rapidapi.com/?s=${searchInURL}&r=json&page=`,
-  //       options
-  //     );
-
-  //     const movies = await response.json();
-  //     // console.log(searchResults);
-  //     // setMovies(searchResults.Search);
-  //     setResult(movies);
-  //     console.log("fetchMovie fired " + searchInURL);
-  //   } catch (error) {}
-  // };
+  const [page, setPage] = useState(1);
 
   const getMovies = async () => {
     const apikey = "ab70d2cf01306700109f002f1cc8938a";
@@ -62,14 +35,29 @@ function App() {
       const response = await fetch(
         // `https://api.themoviedb.org/3/movie/554?api_key=${apikey}&query=Avengers`
 
-        `https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${searchInURL}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${searchInURL}&page=${page}`
       );
 
       const apiResponse = await response.json();
-      console.log(apiResponse);
-      //  console.log(movies)
+      // console.log(apiResponse);
+
       setResult(apiResponse);
     } catch (error) {}
+  };
+
+  const handlePageForward = (currentpage) => {
+    if (currentpage > 0 && currentpage < result.total_pages)
+      setPage(currentpage + 1);
+    getMovies();
+
+    console.log("handle page advance");
+  };
+
+  const handlePageBack = (currentpage) => {
+    if (currentpage > 1 && currentpage <= result.total_pages)
+      setPage(currentpage - 1);
+    getMovies();
+    console.log("handle page advance");
   };
 
   useEffect(() => {
@@ -104,7 +92,12 @@ function App() {
               inputValue={inputValue}
               setSearch={setSearch}
             />
-            <Movies result={result} goToMovie={goToMovie} />
+            <Movies
+              result={result}
+              goToMovie={goToMovie}
+              handlePageForward={handlePageForward}
+              handlePageBack={handlePageBack}
+            />
           </Route>
 
           <Route exact path="/movies">
@@ -128,3 +121,5 @@ function App() {
 }
 
 export default App;
+
+

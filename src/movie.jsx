@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { TiStar } from "react-icons/ti";
 import FavIcon from "./favicon";
 
 const Movie = ({
+  popularity,
   backdrop_path,
   poster_path,
   id,
@@ -17,9 +19,16 @@ const Movie = ({
     <>
       <article onClick={() => goToMovie(id)} className="movie-card">
         <NavLink to="/selected">
-          {" "}
-          <img className="movie-card-poster" src={poster} alt="" />
+          <section movie-card-visual>
+            {" "}
+            <div className="movie-card-rating">
+              <TiStar />
+              {Math.round(popularity)}
+            </div>
+            <img className="movie-card-poster" src={poster} alt="" />{" "}
+          </section>{" "}
         </NavLink>
+
         <section className="movie-card-info">
           {" "}
           <h2 className="movie-card-title">{title}</h2>
