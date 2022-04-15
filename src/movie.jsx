@@ -14,7 +14,13 @@ const Movie = ({
   release_date,
   goToMovie,
 }) => {
-  const poster = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+  const poster = () => {
+    if (poster_path == null) {
+      return `https://variety.com/wp-content/uploads/2020/03/movie-theater-popcorn-placeholder.jpg?w=500`;
+    }
+    return `https://image.tmdb.org/t/p/w500/${poster_path}`;
+  };
+
   return (
     <>
       <article onClick={() => goToMovie(id)} className="movie-card">
@@ -25,7 +31,7 @@ const Movie = ({
               <TiStar />
               {Math.round(popularity)}
             </div>
-            <img className="movie-card-poster" src={poster} alt="" />{" "}
+            <img className="movie-card-poster" src={poster()} alt={title} />{" "}
           </section>{" "}
         </NavLink>
 

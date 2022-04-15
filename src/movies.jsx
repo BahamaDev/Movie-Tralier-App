@@ -43,7 +43,7 @@ const Movies = ({ result, goToMovie, handlePageForward, handlePageBack }) => {
       </div>
       <div className="movies-list">
         {result.results.map((item) => {
-          // console.log(item);
+          console.log(item);
           return <Movie key={item.id} {...item} goToMovie={goToMovie}></Movie>;
         })}
       </div>
