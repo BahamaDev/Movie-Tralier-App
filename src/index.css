@@ -1,8 +1,9 @@
 :root {
-  --comp-color: rgb(225, 156, 6);
-  --main-color: rgb(12, 12, 30);
+  --comp-color: rgb(238, 163, 2);
+  --main-color: rgb(19, 19, 47);
   --main-text: white;
   --comp-text: rgb(205, 205, 205);
+  --gold-grad: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
 }
 
 
@@ -48,7 +49,6 @@ body {
   font-size: 1.2rem;
   background-color: var(--comp-color);
   height: auto;
-  /* border: 2px white solid; */
   margin-right: 35px;
 }
 
@@ -65,10 +65,24 @@ body {
   height: 50px;
   font-size: 1.2rem;
   font-weight: bold;
+  text-decoration: solid 1px black;
   color: white;
   width: 80px;
-  background-color: var(--comp-color);
+  /* background-color: var(--comp-color); */
+  background-image: var(--gold-grad);
+  background-size: 180% auto;
   border: none;
+  transition: 0.5s;
+}
+
+.input-section button:hover {
+  background-position: left center;
+  /* change the direction of the change here */
+  color: var(--main-color);
+
+  text-decoration: none;
+  box-shadow: 0 0 5px #eee;
+  background-size: 100% auto;
 }
 
 /*/////////// Movies Header */
@@ -99,14 +113,15 @@ body {
 
 .movies-count {
   display: flex;
-  background-color: var(--comp-color);
+  /* background-color: var(--comp-color); */
   border-radius: 50%;
   width: 60px;
   height: 60px;
   align-items: center;
   text-align: center;
   font-size: 2.5rem;
-
+  background-image: var(--gold-grad);
+  background-size: 300% auto;
   /* margin-right: 10px auto; */
   padding-left: 8px;
 
@@ -134,13 +149,26 @@ body {
   height: 40px;
   font-size: 2rem;
   font-weight: bold;
-  background-color: var(--comp-color);
+  /* background-color: var(--comp-color); */
+  background-image: var(--gold-grad);
+  background-size: 180% auto;
   border: none;
   margin: 10px 10px;
   justify-content: center;
   align-items: center;
-  ;
+  transition: 0.5s;
 
+}
+
+
+.page-button:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  /* color: #fff; */
+  text-decoration: none;
+  box-shadow: 0 0 10px #eee;
+  color: var(--main-color);
+  background-size: 80% auto;
 }
 
 
@@ -166,7 +194,7 @@ body {
   grid-template-rows: 80% 20%;
   max-width: 350px;
   height: 500px;
-  border: 1px solid var(--comp-text);
+  border: .5px solid var(--comp-text);
   width: 100%;
   grid-template-areas: "movie-card-visual", "movie-card-info";
 
@@ -181,7 +209,9 @@ body {
   font-size: 1.5rem;
   justify-content: center;
   align-items: center;
-  background-color: var(--comp-color);
+  /* background-color: var(--comp-color); */
+  background-image: var(--gold-grad);
+  background-size: 250% auto;
   margin: 10px 15px;
   width: 70px;
   height: 30px;
@@ -215,7 +245,9 @@ body {
   grid-area: "movie-card-info";
   margin: 0;
   padding: 0;
-  background-color: var(--comp-color)
+  background-color: var(--comp-color);
+   /* background-image: var(--gold-grad); */
+  /* background-size: 250% auto; */
 }
 
 .movie-card-title {
@@ -270,7 +302,7 @@ body {
   align-items: center;
   justify-items: center;
   height: auto;
-  border: 1px red solid;
+  /* border: 1px red solid; */
 }
 
 .selected-movie-page {
@@ -286,11 +318,13 @@ body {
     "selected-card-poster selected-card-info"
     "selected-card-poster selected-card-info"
   ;
-
+  
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   justify-self: center;
+
+  transition: 0.5s;
 }
 
 
@@ -324,12 +358,13 @@ body {
   /* justify-content: center; */
   align-items: center;
   background-color: var(--comp-color);
-  width: 70px;
+  width: auto;
   height: 30px;
   /* float: right; */
   justify-self: center;
   /* border: 2px black solid */
-}
+  padding: 10px;
+} 
 
 .selected-card-poster {
   display: flex;
@@ -382,10 +417,22 @@ body {
   background-color: var(--comp-color);
   border: none;
   margin: 10px 0px;
-
+  background-image: var(--gold-grad);
+  background-size: 200% auto;
+  transition: 0.8s;
 }
 
-.button-section {}
+
+.play-button:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  /* color: #fff; */
+  text-decoration: none;
+  box-shadow: 0 0 10px #eee;
+  background-size: 150% auto;
+}
+
+
 
 
 .back-button {
@@ -396,14 +443,49 @@ body {
   height: 60px;
   font-size: 2rem;
   font-weight: bold;
-  background-color: var(--comp-color);
+  background-image: var(--gold-grad);
+  background-size: 200% auto;
+  /* background-color: var(--comp-color); */
   /* border: 1px white solid; */
   margin: 10px 50px;
   align-items: center;
   justify-content: center;
   padding-right: 10px;
+  transition: 0.8s;
+}
+
+
+.back-button:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  /* color: #fff; */
+  text-decoration: none;
+  box-shadow: 0 0 10px #eee;
+  background-size: 100% auto;
 }
 
 .link {
   text-decoration: none;
+}
+
+
+
+
+
+.btn-grad {
+  /* background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%); */
+  transition: 0.5s;
+  background-size: 150% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 20px #eee;
+  background-size: 200% auto;
 }

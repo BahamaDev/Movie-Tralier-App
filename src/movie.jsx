@@ -5,7 +5,7 @@ import FavIcon from "./favicon";
 
 const Movie = ({
   popularity,
-
+vote_average,
   poster_path,
   id,
 
@@ -32,7 +32,7 @@ const Movie = ({
             {" "}
             <div className="movie-card-rating">
               <TiStar />
-              {Math.round(popularity)}
+              {vote_average}
             </div>
             <img className="movie-card-poster" src={poster()} alt={title} />{" "}
           </section>{" "}

@@ -34,7 +34,7 @@ const SelectedMovie = ({ result, selectedMovie }) => {
         <div className="selected-movie-page">
           <div className="button-section">
             <Link to="/" className="link">
-              <div className="back-button">
+              <div className="back-button .btn-grad">
                 <TiChevronLeft />
                 BACK
               </div>
@@ -58,7 +58,7 @@ const SelectedMovie = ({ result, selectedMovie }) => {
               </h3>{" "}
               <div className=" selected-card-rating">
                 <TiStar />
-                {Math.round(theMovie.popularity)}
+                {theMovie.vote_average}
               </div>
             </div>
             <div className="selected-card-description">{theMovie.overview}</div>
