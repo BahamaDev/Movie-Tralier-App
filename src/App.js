@@ -122,6 +122,4 @@ function App() {
 
 export default App;
 
-//Needs placeholder for missing posters
-// Add favorite and Rating to selected image.
 // Make everything fully responsive.

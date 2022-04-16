@@ -8,16 +8,15 @@ const Movies = ({ result, goToMovie, handlePageForward, handlePageBack }) => {
 
   const { total_results, page, total_pages } = { ...result };
 
-
   return (
     <>
       <div className="movies-header">
         <div className="search-results">
-          <h2>
-            {" "}
-            <span className="movies-count"> {result.total_results} </span>{" "}
-            Search Results{" "}
-          </h2>
+          {" "}
+          <div className="movies-count">
+            <p>{result.total_results} </p>{" "}
+          </div>{" "}
+          <h2 className="movies-count-text">Search Results</h2>
         </div>
 
         <div className="pagination-section">
