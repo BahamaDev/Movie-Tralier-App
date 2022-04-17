@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MoviesDem from "./tmdbtest";
 
 function App() {
-  const [searchInURL, setSearchInURL] = useState("Dolly");
+  const [searchInURL, setSearchInURL] = useState("The Matrix");
 
   const [result, setResult] = useState({
     page: 0,
@@ -29,8 +29,9 @@ function App() {
 
   const [page, setPage] = useState(1);
 
+  const apikey = "ab70d2cf01306700109f002f1cc8938a";
+
   const getMovies = async () => {
-    const apikey = "ab70d2cf01306700109f002f1cc8938a";
     try {
       const response = await fetch(
         // `https://api.themoviedb.org/3/movie/554?api_key=${apikey}&query=Avengers`
@@ -109,6 +110,7 @@ function App() {
               result={result}
               {...result}
               selectedMovie={selectedMovie}
+              apikey={apikey}
             />
           </Route>
           <Route exact path="/moviesdem">

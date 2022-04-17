@@ -6,13 +6,10 @@
   --gold-grad: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
 }
 
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-
 }
 
 
@@ -246,7 +243,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--comp-color);
-   /* background-image: var(--gold-grad); */
+  /* background-image: var(--gold-grad); */
   /* background-size: 250% auto; */
 }
 
@@ -318,7 +315,7 @@ body {
     "selected-card-poster selected-card-info"
     "selected-card-poster selected-card-info"
   ;
-  
+
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -364,7 +361,7 @@ body {
   justify-self: center;
   /* border: 2px black solid */
   padding: 10px;
-} 
+}
 
 .selected-card-poster {
   display: flex;
