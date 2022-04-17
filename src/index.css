@@ -3,7 +3,8 @@
   --main-color: rgb(19, 19, 47);
   --main-text: white;
   --comp-text: rgb(205, 205, 205);
-  --gold-grad: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
+  --gold-grad: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%);
+  --trans: 0.5s;
 }
 
 * {
@@ -37,8 +38,9 @@ body {
   display: flex;
   height: 80px;
   /* background-color: rgb(112, 112, 112); */
-  align-items: flex-end;
+  align-items: center;
   justify-content: end;
+
 }
 
 
@@ -69,7 +71,7 @@ body {
   background-image: var(--gold-grad);
   background-size: 180% auto;
   border: none;
-  transition: 0.5s;
+  transition: var(--trans);
 }
 
 .input-section button:hover {
@@ -90,37 +92,43 @@ body {
   width: 100%;
   display: flex;
   height: auto;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 20px auto;
-  justify-content: center;
+  justify-content: space-around;
   /* border: 1px white solid; */
+  ;
+
+
 
 }
 
 
 .search-results {
   display: flex;
-  width: 80%;
+  width: auto;
   justify-content: center;
   align-content: center;
   align-items: center;
-  /* border: 1px green solid; */
+  border: .5px white solid;
+  padding: 3px 3px;
 }
 
 
 .movies-count {
   display: flex;
   /* background-color: var(--comp-color); */
-  border-radius: 50%;
-  width: 60px;
+  /* border-radius: 50%; */
+  width: auto;
+  min-width: 100px;
   height: 60px;
   align-items: center;
+  justify-content: center;
   text-align: center;
   font-size: 2.5rem;
   background-image: var(--gold-grad);
   background-size: 300% auto;
-  /* margin-right: 10px auto; */
-  padding-left: 8px;
+  margin-right: 5px;
+
 
 
 }
@@ -485,4 +493,76 @@ body {
   text-decoration: none;
   box-shadow: 0 0 20px #eee;
   background-size: 200% auto;
+}
+
+
+
+
+/* /////Toggle Switch */
+/* /////Toggle Switch */
+
+
+.switch-container {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
+
+.switch-opt {
+  margin: 0 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 40px;
+  /* background-color: rgb(0, 187, 255); */
+  align-content: center;
+
+
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(211, 211, 211);
+  transition: var(--trans);
+  /* content: "S"; */
+}
+
+.slider::before {
+  position: absolute;
+  color: black;
+  content: "  ";
+  height: 32px;
+  width: 31px;
+  left: 4px;
+  bottom: 4px;
+  /* top: 4px; */
+  background-color: white;
+  transition: var(--trans);
+}
+
+input:checked+.slider {
+  background: var(--gold-grad);
+  transition: var(--trans);
+
+
+}
+
+input:checked+.slider:before {
+  transform: translateX(31px);
 }

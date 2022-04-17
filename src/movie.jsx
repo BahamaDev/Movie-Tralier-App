@@ -5,7 +5,7 @@ import FavIcon from "./favicon";
 
 const Movie = ({
   popularity,
-vote_average,
+  vote_average,
   poster_path,
   id,
 
@@ -14,9 +14,6 @@ vote_average,
   release_date,
   goToMovie,
 }) => {
-
-
-  
   const poster = () => {
     if (poster_path == null) {
       return `https://variety.com/wp-content/uploads/2020/03/movie-theater-popcorn-placeholder.jpg?w=500`;

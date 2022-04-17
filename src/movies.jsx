@@ -1,5 +1,6 @@
 import React from "react";
 import Movie from "./movie";
+import Switch from "./switch";
 import { TiChevronLeft } from "react-icons/ti";
 import { TiChevronRight } from "react-icons/ti";
 
@@ -11,6 +12,7 @@ const Movies = ({ result, goToMovie, handlePageForward, handlePageBack }) => {
   return (
     <>
       <div className="movies-header">
+        <Switch />
         <div className="search-results">
           {" "}
           <div className="movies-count">
@@ -42,7 +44,7 @@ const Movies = ({ result, goToMovie, handlePageForward, handlePageBack }) => {
       </div>
       <div className="movies-list">
         {result.results.map((item) => {
-          console.log(item);
+          // console.log(item);
           return <Movie key={item.id} {...item} goToMovie={goToMovie}></Movie>;
         })}
       </div>
