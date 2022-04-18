@@ -32,6 +32,15 @@ function App() {
   const bySearch = `https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${searchInURL}&page=${page}`;
   const [sourceMode, setSourceMode] = useState(bySearch);
 
+
+  const changeMode = () => {
+    if (sourceMode == bySearch) {
+      setSourceMode(byDiscover);
+    } else {setSourceMode(bySearch)}
+    getMovies();
+   
+  };
+
   const getMovies = async () => {
     try {
       const response = await fetch(sourceMode);
@@ -66,15 +75,15 @@ function App() {
     setSelectedMovie(id);
   };
 
-  // if (result.results.length == 0) {
-  //   return (
-  //     <>
-  //       {/* <Navbar /> */}
-  //       <h2>No Search Results</h2>
-  //       <button onClick={getMovies}>Refresh List</button>
-  //     </>
-  //   );
-  // }
+  if (result.results.length == 0) {
+    return (
+      <>
+        {/* <Navbar /> */}
+        <h2>No Search Results</h2>
+        <button onClick={getMovies}>Refresh List</button>
+      </>
+    );
+  }
 
   return (
     <Router>
@@ -88,7 +97,9 @@ function App() {
               setSearch={setSearch}
             />
             <Movies
+              changeMode={changeMode}
               result={result}
+              {...result}
               goToMovie={goToMovie}
               handlePageForward={handlePageForward}
               handlePageBack={handlePageBack}
@@ -96,7 +107,7 @@ function App() {
           </Route>
 
           <Route exact path="/movies">
-            <Movies result={result} {...result} goToMovie={goToMovie} />
+            <Movies />
           </Route>
 
           <Route exact path="/selected">

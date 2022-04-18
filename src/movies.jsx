@@ -1,10 +1,17 @@
 import React from "react";
 import Movie from "./movie";
 import Switch from "./switch";
+import Search_Results from "./search-results";
 import { TiChevronLeft } from "react-icons/ti";
 import { TiChevronRight } from "react-icons/ti";
 
-const Movies = ({ result, goToMovie, handlePageForward, handlePageBack }) => {
+const Movies = ({
+  result,
+  goToMovie,
+  handlePageForward,
+  handlePageBack,
+  changeMode,
+}) => {
   console.log(result);
 
   const { total_results, page, total_pages } = { ...result };
@@ -12,15 +19,8 @@ const Movies = ({ result, goToMovie, handlePageForward, handlePageBack }) => {
   return (
     <>
       <div className="movies-header">
-        <Switch />
-        <div className="search-results">
-          {" "}
-          <div className="movies-count">
-            <p>{result.total_results} </p>{" "}
-          </div>{" "}
-          <h2 className="movies-count-text">Search Results</h2>
-        </div>
-
+        <Switch changeMode={changeMode} />
+        <Search_Results results={result} total_results={total_results} />
         <div className="pagination-section">
           <div
             type="button"

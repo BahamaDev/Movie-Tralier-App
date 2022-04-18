@@ -8,9 +8,7 @@ const Movie = ({
   vote_average,
   poster_path,
   id,
-
   title,
-
   release_date,
   goToMovie,
 }) => {
@@ -25,7 +23,7 @@ const Movie = ({
     <>
       <article onClick={() => goToMovie(id)} className="movie-card">
         <NavLink to="/selected">
-          <section movie-card-visual>
+          <section className="movie-card-visual">
             {" "}
             <div className="movie-card-rating">
               <TiStar />
