@@ -9,8 +9,7 @@ import MoviesDem from "./tmdbtest";
 function App() {
   //Manages the value of the final value to be inserted into the URL in Search search Mode
   const [searchInURL, setSearchInURL] = useState("Halo");
-  const [discoverMode, setDiscoverMode] = useState(true)
-  const [mode, setMode] = useState("discover")
+  const [discoverMode, setDiscoverMode] = useState(true);
 
   // Manages the response recieved from the API call.
   const [result, setResult] = useState({
@@ -28,16 +27,14 @@ function App() {
 
   // Sets the typed input value as the item to be searched in the URL.  It also switches to the Search mode.
   const setSearch = () => {
-    // console.log("InputValue recieved in setSearch: " + inputValue);
+    setDiscoverMode(false);
+    getMovies();
     const a = inputValue !== "" || " " ? inputValue : "";
     setSearchInURL(a);
-    // console.log("setSearch fired with : " + a + " as setSearchInURL");
-    setSourceMode(bySearch);
-    getMovies();
   };
 
   // Manages Pagination: Which page of content is being fetched from the server.
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   // These varaibles and hooks manages the Fetch api parameters and viewing mode. Either fetch by Source or by Search.
   const apikey = "ab70d2cf01306700109f002f1cc8938a";
@@ -52,50 +49,35 @@ function App() {
     mode: "search",
   };
 
-  const [sourceMode, setSourceMode] = useState(byDiscover);
-
-  //Switches between Search and Discover Modes
-  const changeMode = () => {
-    setDiscoverMode(!discoverMode)
-    if (sourceMode.mode === "search") {
-      setSourceMode(byDiscover);
-    } else if (sourceMode.mode === "discover") {
-      setSourceMode(bySearch);
-    }
-    console.log(sourceMode.mode);
-    getMovies();
-  };
-
   // MAIN FETCH FUNCTION: Fetches data from the server based on the given mode and parameters.
   const getMovies = async () => {
     try {
-      const response = await fetch(sourceMode.url);
+      const response = await fetch(
+        discoverMode ? byDiscover.url : bySearch.url
+      );
       const apiResponse = await response.json();
       setResult(apiResponse);
     } catch (error) {}
   };
 
   // Pagination: Increments page being sent to api call through setPage.
-  const handlePageForward = (currentPage) => {
-    if (currentPage > 0 && currentPage < result.total_pages)
-      setPage((currentPage) => currentPage + 1);
+  const handlePageForward = () => {
+    if (page > 0 && page < result.total_pages) setPage(() => page + 1);
     console.log("handle page forward " + page);
-    getMovies();
+    // getMovies();
   };
 
   // Pagination: Decrements page being sent to api call through setPage.
-  const handlePageBack = (currentPage) => {
-    if (currentPage > 1 && currentPage <= result.total_pages)
-      setPage((currentPage) => currentPage - 1);
+  const handlePageBack = () => {
+    if (page > 1 && page <= result.total_pages) setPage(() => page - 1);
     console.log("handle page back" + page);
-    getMovies();
+    // getMovies();
   };
 
   useEffect(() => {
-    console.log("useEffect fired");
+    setInputValue("");
     getMovies();
-    // console.log(result);
-  }, []);
+  }, [discoverMode, page, searchInURL]);
 
   const goToMovie = (id) => {
     console.log(id);
@@ -124,18 +106,18 @@ function App() {
               setSearch={setSearch}
               discoverMode={discoverMode}
               setDiscoverMode={setDiscoverMode}
+              getMovies={getMovies}
             />
             <Movies
-              changeMode={changeMode}
               result={result}
               {...result}
               goToMovie={goToMovie}
               handlePageForward={handlePageForward}
               handlePageBack={handlePageBack}
               page={page}
-              sourceMode={sourceMode}
               discoverMode={discoverMode}
               setDiscoverMode={setDiscoverMode}
+              getMovies={getMovies}
             />
           </Route>
 
@@ -162,13 +144,6 @@ function App() {
 
 export default App;
 
-/////////////Fixes Needed/////
-
-// Search Discover Swith Delay in activation
-//Delay in Pagination
-// Result header not changing.
-
-//  Movie and button hovers
 // Make everything fully responsive.
-//Address need for double click on search
+
 // Take to Netlify

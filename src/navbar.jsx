@@ -1,14 +1,12 @@
+import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
 import React, { Component } from "react";
 import { useState } from "react";
 const Navbar = ({ setInputValue, inputValue, setSearch, setDiscoverMode }) => {
-
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    setDiscoverMode(false)
-  }
+    setDiscoverMode(false);
+  };
 
-
-  
   return (
     <>
       <div className="navbar">
