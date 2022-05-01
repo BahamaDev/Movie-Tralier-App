@@ -1,5 +1,6 @@
 :root {
   --comp-color: rgb(238, 163, 2);
+  --comp-color-light: rgb(254, 235, 194);
   --main-color: rgb(19, 19, 47);
   --main-text: white;
   --comp-text: rgb(205, 205, 205);
@@ -565,4 +566,10 @@ input:checked+.slider {
 
 input:checked+.slider:before {
   transform: translateX(31px);
+}
+
+.discover-text {
+  padding: 5px 5px;
+  color: var(--main-text);
+
 }

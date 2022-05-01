@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import { useState } from "react";
-const Navbar = ({ setInputValue, inputValue, setSearch }) => {
+const Navbar = ({ setInputValue, inputValue, setSearch, setDiscoverMode }) => {
+
+  const handleInputChange = e => {
+    setInputValue(e.target.value);
+    setDiscoverMode(false)
+  }
+
+
+  
   return (
     <>
       <div className="navbar">
@@ -10,7 +18,7 @@ const Navbar = ({ setInputValue, inputValue, setSearch }) => {
             className="text-input"
             placeholder="Enter search..."
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={handleInputChange}
           />
           <button onClick={(e) => setSearch(e)}>Search</button>
         </div>

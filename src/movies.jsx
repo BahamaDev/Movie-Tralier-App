@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Movie from "./movie";
 import Switch from "./switch";
 import Search_Results from "./search-results";
@@ -11,21 +11,31 @@ const Movies = ({
   handlePageForward,
   handlePageBack,
   changeMode,
+  sourceMode,
+  discoverMode
 }) => {
-  console.log(result);
+  // console.log(result);
+
+  const currentPage = result.page
 
   const { total_results, page, total_pages } = { ...result };
 
   return (
     <>
       <div className="movies-header">
-        <Switch changeMode={changeMode} />
-        <Search_Results results={result} total_results={total_results} />
+        <Switch changeMode={changeMode} discoverMode={discoverMode} />
+        <Search_Results
+          changeMode={changeMode}
+          sourceMode={sourceMode}
+          results={result}
+          total_results={total_results}
+          discoverMode={discoverMode}
+        />
         <div className="pagination-section">
           <div
             type="button"
             className="page-button back"
-            onClick={() => handlePageBack(result.page)}
+            onClick={() => handlePageBack(currentPage)}
           >
             <TiChevronLeft />
           </div>
@@ -36,7 +46,7 @@ const Movies = ({
 
           <div
             className="page-button forward"
-            onClick={() => handlePageForward(result.page)}
+            onClick={() => handlePageForward(page)}
           >
             <TiChevronRight />
           </div>
