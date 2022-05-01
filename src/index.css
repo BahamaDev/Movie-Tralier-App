@@ -34,7 +34,6 @@ body {
 
 /* /////////// Search Bar */
 /* /////////// Search Bar */
-
 .navbar {
   display: flex;
   height: 80px;
@@ -77,7 +76,7 @@ body {
 
 .input-section button:hover {
   background-position: left center;
-  /* change the direction of the change here */
+  /* adjust the direction of the change here */
   color: var(--main-color);
 
   text-decoration: none;
@@ -87,8 +86,6 @@ body {
 
 /*/////////// Movies Header */
 /*/////////// Movies Header */
-
-
 .movies-header {
   width: 100%;
   display: flex;
@@ -98,8 +95,6 @@ body {
   justify-content: space-around;
   /* border: 1px white solid; */
   ;
-
-
 
 }
 
@@ -244,16 +239,12 @@ body {
 
 .movie-card-info {
   display: flex;
-  /* flex-direction: row; */
-  /* height: 100%; */
   flex-wrap: wrap;
-  /* border: 1px green solid; */
   grid-area: "movie-card-info";
   margin: 0;
   padding: 0;
   background-color: var(--comp-color);
-  /* background-image: var(--gold-grad); */
-  /* background-size: 250% auto; */
+
 }
 
 .movie-card-title {
@@ -300,9 +291,6 @@ body {
 
 /*///////Selected-Movie Page */
 /*///////Selected-Movie Page */
-
-
-
 .selected-wrapper {
   display: flex;
   align-items: center;

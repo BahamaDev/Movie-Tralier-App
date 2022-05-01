@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { TiStar } from "react-icons/ti";
 import FavIcon from "./favicon";
 
+// ////This is the template component for each individual movie.
+
 const Movie = ({
   popularity,
   vote_average,

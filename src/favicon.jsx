@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { TiHeartOutline, TiHeart } from "react-icons/ti";
 
-const FavIcon = () => {
-  // const [text, setText] = useState("notFav");
+// ////This component manages only the favicon.
 
+const FavIcon = () => {
   const [favStatus, setFavStatus] = useState({
     status: "False",
     icon: <TiHeartOutline />,

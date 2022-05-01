@@ -1,8 +1,11 @@
+import React from "react";
 import Movie from "./movie";
 import Switch from "./switch";
 import Search_Results from "./search-results";
 import { TiChevronLeft } from "react-icons/ti";
 import { TiChevronRight } from "react-icons/ti";
+
+// ///// This component organizes the collection of movies and their navigation componenets.
 
 const Movies = ({
   result,
@@ -55,7 +58,7 @@ const Movies = ({
       </div>
       <div className="movies-list">
         {result.results.map((item) => {
-          // console.log(item);
+      
           return <Movie key={item.id} {...item} goToMovie={goToMovie}></Movie>;
         })}
       </div>

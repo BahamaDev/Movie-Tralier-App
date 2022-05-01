@@ -1,6 +1,7 @@
-import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
-import React, { Component } from "react";
-import { useState } from "react";
+import React from "react";
+
+// /////This component manages the search input field and button.
+
 const Navbar = ({ setInputValue, inputValue, setSearch, setDiscoverMode }) => {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);

@@ -1,5 +1,4 @@
 import React from "react";
-import FavIcon from "./favicon";
 import { TiChevronLeft, TiStar } from "react-icons/ti";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const SelectedMovie = ({ result, selectedMovie, apikey }) => {
   const { pages, total_pages } = result;
- 
+
   const selected_movie = result.results.filter(
     (item) => item.id == selectedMovie
   );
@@ -58,7 +57,6 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
   };
 
   return (
-   
     <>
       <div className="selected-wrapper">
         <div className="selected-movie-page">
@@ -94,7 +92,7 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
             <div className="selected-card-description">{theMovie.overview}</div>
             {/* <FavIcon /> */}
             <a href={trailerLink} target="blank">
-              <button className="play-button">WATCH MOVIE NOW</button>
+              <button className="play-button">WATCH TRAILER NOW</button>
             </a>
           </section>
         </div>

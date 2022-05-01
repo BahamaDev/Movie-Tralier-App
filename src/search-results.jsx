@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-
-
-const Search_Results = ({  discoverMode, ...result }) => {
+const Search_Results = ({ discoverMode, ...result }) => {
   const searchConfig = (
     <div className="search-results">
       {" "}
@@ -14,11 +12,8 @@ const Search_Results = ({  discoverMode, ...result }) => {
 
   const discoverConfig = <h2 className="discover-text">Discover New Movies</h2>;
 
- 
-
   return (
     <>
-      {/* <div>{barConfig}</div> */}
       <div>
         <h2 className="discover-text">
           {discoverMode ? discoverConfig : searchConfig}

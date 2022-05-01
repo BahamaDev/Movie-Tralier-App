@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
+// //// This component manages only the mode switch and its functionality.
 
 const Switch = ({ discoverMode, setDiscoverMode, getMovies }) => {
   const makeChange = () => {
     setDiscoverMode(!discoverMode);
-    // getMovies();
     console.log("changed mode to " + discoverMode);
   };
 

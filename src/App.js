@@ -4,7 +4,6 @@ import Movies from "./movies";
 import Navbar from "./navbar";
 import SelectedMovie from "./selected-movie";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import MoviesDem from "./tmdbtest";
 
 function App() {
   //Manages the value of the final value to be inserted into the URL in Search search Mode
@@ -79,20 +78,11 @@ function App() {
     getMovies();
   }, [discoverMode, page, searchInURL]);
 
+  // Allows movie to be selected, and its summary to be accessed in selected movie component.
   const goToMovie = (id) => {
     console.log(id);
     setSelectedMovie(id);
   };
-
-  // if (result.results.length == 0) {
-  //   return (
-  //     <>
-  //       {/* <Navbar /> */}
-  //       <h2>No Search Results</h2>
-  //       <button onClick={getMovies}>Refresh List</button>
-  //     </>
-  //   );
-  // }
 
   return (
     <Router>
@@ -133,9 +123,6 @@ function App() {
               apikey={apikey}
             />
           </Route>
-          <Route exact path="/moviesdem">
-            <MoviesDem />
-          </Route>
         </Switch>
       </main>
     </Router>
@@ -145,5 +132,4 @@ function App() {
 export default App;
 
 // Make everything fully responsive.
-
 // Take to Netlify
