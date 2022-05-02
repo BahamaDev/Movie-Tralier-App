@@ -55,10 +55,12 @@ function App() {
         discoverMode ? byDiscover.url : bySearch.url
       );
       const apiResponse = await response.json();
+
       setResult(apiResponse);
     } catch (error) {}
   };
 
+  console.log(result);
   // Pagination: Increments page being sent to api call through setPage.
   const handlePageForward = () => {
     if (page > 0 && page < result.total_pages) setPage(() => page + 1);
@@ -76,6 +78,7 @@ function App() {
   useEffect(() => {
     setInputValue("");
     getMovies();
+    console.log(result);
   }, [discoverMode, page, searchInURL]);
 
   // Allows movie to be selected, and its summary to be accessed in selected movie component.

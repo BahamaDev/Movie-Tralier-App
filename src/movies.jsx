@@ -45,7 +45,11 @@ const Movies = ({
           </div>
 
           <div className="page-number">
-            {result.page} of {result.total_pages}
+            {/* {result.page} of {result.total_pages} */}
+            <p>Page</p>
+            <p>
+              {result.page} of {result.total_pages}
+            </p>
           </div>
 
           <div
@@ -58,7 +62,6 @@ const Movies = ({
       </div>
       <div className="movies-list">
         {result.results.map((item) => {
-      
           return <Movie key={item.id} {...item} goToMovie={goToMovie}></Movie>;
         })}
       </div>
