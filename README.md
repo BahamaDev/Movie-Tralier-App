@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Movie Trailer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Whether your a scifi lover, or a romantic this eye catching, easy to use movie trailer app built with the TMDB API will allow you to browse or search thousands of movies, and view their trailers.  Use this to plan your next few movie nights. 
 
-## Available Scripts
 
-In the project directory, you can run:
+## Tech:
+* ReactJs
+* HTML
+* CSS
+* Javascript
+* NPM
+* TMDB API
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How To:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Using the app is simple and straight forward.  Use the mode switch to choose between Discover and Search modes.  Click on a poster to learn more about movie and to view it's trailer. 
 
-### `npm test`
+-Discover Mode: This mode allows you to browse to your hearts content. Movies are automatically presented based on latest releases and popularity. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-Search mode: Search mode can be activated using the mode switch, or by typing in the search input field. Movies are presented based on the input given.  In this mode, the number of search results are displayed at the top of the page.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Developer's Notes:
+Ahhhh React JS! How I am growing to love thee and understand thee more and more.  
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This MVP was a great exploration of some of the core components and features of React. Though there are many similar builds around I used this project to test my growing understanding of React and intentionally did not follow any templates or refer to any tutorials of similar builds.  Twas a good challenge!   
