@@ -22,6 +22,7 @@ body {
   font-family: 'Lato', sans-serif;
   overflow-y: scroll;
   height: auto;
+  align-items: center;
 
 }
 
@@ -588,7 +589,7 @@ input:checked+.slider:before {
   align-items: center;
   justify-items: center;
   height: auto;
-  /* border: 1px red solid; */
+  border: 1px red solid;
 }
 
 .selected-movie-page {
@@ -607,10 +608,9 @@ input:checked+.slider:before {
 
   margin: 0 auto;
   align-items: center;
-  justify-content: center;
-  justify-self: center;
 
   transition: 0.5s;
+  border: 1px green solid;
 }
 
 
@@ -656,14 +656,16 @@ input:checked+.slider:before {
   display: flex;
   height: auto;
   grid-area: selected-card-poster;
-
-  width: 90%;
+  /* width: 90%; */
+  width: auto;
+  border: 1px pink solid;
 }
 
 
 .selected-card-poster>img {
-  width: 60%;
-  max-width: 400px;
+  width: auto;
+  max-width: 85%;
+  max-height: 600px;
   min-width: 200px;
   height: auto;
   justify-self: center;
@@ -671,14 +673,14 @@ input:checked+.slider:before {
 }
 
 .selected-card-title {
-  font-size: 3.5rem;
-  grid-area: selected-card-title;
+  /* font-size: 3.5rem; */
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   /* border: 1px solid white; */
   margin: 10px 0px;
 }
 
 .selected-card-year {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   grid-area: selected-card-year;
   font-weight: 400;
   color: var(--main-color)
@@ -686,7 +688,7 @@ input:checked+.slider:before {
 
 .selected-card-description {
   grid-area: selected-card-description;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   word-wrap: wrap;
   line-height: 1.5;
   margin: 10px 2px;
@@ -698,14 +700,18 @@ input:checked+.slider:before {
   grid-area: 'play-button';
   width: 90%;
   height: 70px;
+  max-height: auto;
   font-size: 2rem;
+
   font-weight: bold;
   background-color: var(--comp-color);
   border: none;
   margin: 10px 0px;
+  padding: 0px 10px;
   background-image: var(--gold-grad);
   background-size: 200% auto;
   transition: 0.8s;
+
 }
 
 
@@ -726,6 +732,7 @@ input:checked+.slider:before {
   text-decoration: none;
   display: flex;
   width: 20%;
+  min-width: 120px;
   height: 60px;
   font-size: 2rem;
   font-weight: bold;
@@ -774,4 +781,87 @@ input:checked+.slider:before {
   text-decoration: none;
   box-shadow: 0 0 20px #eee;
   background-size: 200% auto;
+}
+
+/* ////Selected Movie - Media Queries */
+/* ////Selected Movie - Media Queries */
+
+
+@media(max-width: 768px) {
+
+
+  .selected-card-poster {
+    display: flex;
+    height: auto;
+    grid-area: selected-card-poster;
+    /* width: 90%; */
+    width: auto;
+    border: 1px pink solid;
+  }
+
+
+  .selected-card-title {}
+
+  .selected-card-description {
+
+    font-size: 1.2rem;
+  }
+
+}
+
+@media(max-width: 650px) {
+
+  .selected-movie-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "button-section"
+      "selected-card-poster"
+      "selected-card-info"
+    ;
+  }
+
+  .back-button {
+    height: 50px;
+    margin-right: 0px;
+    border: .5px black solid;
+  }
+
+  .selected-card-info {
+    align-items: center;
+
+  }
+
+  .selected-card-description {
+    text-align: center;
+    padding: 0px 10px;
+  }
+
+  .selected-card-title {
+    text-align: center;
+  }
+
+
+  .selected-card-year {
+    text-align: center;
+    font-size: 1rem;
+    padding: 0px 10px;
+  }
+
+  .selected-card-rating {}
+
+  .selected-card-info>a {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .play-button {
+    height: 50px;
+    font-size: 1.5rem;
+    width: 100%;
+    border: .5px black solid;
+
+  }
+
 }
