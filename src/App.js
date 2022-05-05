@@ -80,7 +80,7 @@ function App() {
     getMovies();
 
     // console.log(result);
-  }, [discoverMode, page, searchInURL]);
+  }, [discoverMode, page, searchInURL, getMovies]);
 
   // Allows movie to be selected, and its summary to be accessed in selected movie component.
   const goToMovie = (id) => {
