@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-const Search_Results = ({ discoverMode, ...result }) => {
+import React from "react";
+
+const SearchResults = ({ discoverMode, ...result }) => {
   const searchConfig = (
     <div className="search-results">
       {" "}
@@ -23,4 +24,4 @@ const Search_Results = ({ discoverMode, ...result }) => {
   );
 };
 
-export default Search_Results;
+export default SearchResults;

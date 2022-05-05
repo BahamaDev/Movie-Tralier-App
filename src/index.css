@@ -796,7 +796,7 @@ input:checked+.slider:before {
   }
 
 
-  .selected-card-title {}
+
 
   .selected-card-description {
 
@@ -845,7 +845,6 @@ input:checked+.slider:before {
     padding: 0px 10px;
   }
 
-  .selected-card-rating {}
 
   .selected-card-info>a {
     text-align: center;

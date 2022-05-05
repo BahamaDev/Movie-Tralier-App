@@ -7,11 +7,9 @@ import { Link } from "react-router-dom";
 //////This component displays the indiviual movie when it selected by the user.
 
 const SelectedMovie = ({ result, selectedMovie, apikey }) => {
-  const { pages, total_pages } = result;
-
   // Filters through result.results to match movie based on id, and assign to new variable.
   const selected_movie = result.results.filter(
-    (item) => item.id == selectedMovie
+    (item) => item.id === selectedMovie
   );
 
   // Sets data template for loading page.
@@ -56,7 +54,7 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
     }
     getMovieDetails();
     console.log(loadId);
-  }, []);
+  }, [getMovieDetails, loadId, newLoadId.loadId]);
 
   //  Gets the trailer key from moviesDetails.
   const trailerKey = movieDetails.videos.results[0].key;

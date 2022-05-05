@@ -1,7 +1,7 @@
 import React from "react";
 import Movie from "./movie";
 import Switch from "./switch";
-import Search_Results from "./search-results";
+import SearchResults from "./search-results";
 import { TiChevronLeft } from "react-icons/ti";
 import { TiChevronRight } from "react-icons/ti";
 
@@ -29,7 +29,7 @@ const Movies = ({
           setDiscoverMode={setDiscoverMode}
           getMovies={getMovies}
         />
-        <Search_Results
+        <SearchResults
           sourceMode={sourceMode}
           results={result}
           total_results={total_results}
