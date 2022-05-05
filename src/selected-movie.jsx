@@ -2,56 +2,69 @@ import React from "react";
 import { TiChevronLeft, TiStar } from "react-icons/ti";
 import { useState } from "react";
 import { useEffect } from "react";
-
 import { Link } from "react-router-dom";
+
+//////This component displays the indiviual movie when it selected by the user.
 
 const SelectedMovie = ({ result, selectedMovie, apikey }) => {
   const { pages, total_pages } = result;
 
+  // Filters through result.results to match movie based on id, and assign to new variable.
   const selected_movie = result.results.filter(
     (item) => item.id == selectedMovie
   );
 
-  const [movieDetails, setDMovieDetails] = useState({
-    videos: { results: [{ key: "hello" }], vote_average: 1 },
+  // Sets data template for loading page.
+  const [movieDetails, setMovieDetails] = useState({
+    videos: { results: [{ key: "Hello" }], vote_average: 1 },
   });
-  const theMovie = selected_movie[0] || {};
 
-  console.log(theMovie);
+  // Identifies the particular movie.
+  const theMovie = selected_movie[0] || {};
+  // console.log(theMovie);
+
+  // Allows movie ID to be determined base on the given conditions.
+  const [loadId, setLoadId] = useState(theMovie.id);
 
   const api_key = apikey;
+  const URL = `https://api.themoviedb.org/3/movie/${loadId}?api_key=${api_key}&append_to_response=videos`;
 
+  //  Fetches data from server
   const getMovieDetails = async () => {
     try {
-      const response = await fetch(
-        // `https://api.themoviedb.org/3/movie/554?api_key=${apikey}&query=Avengers`
-
-        `https://api.themoviedb.org/3/movie/${theMovie.id}?api_key=${api_key}&append_to_response=videos`
-      );
-
+      const response = await fetch(URL);
       const detailsResponse = await response.json();
-      // console.log(apiResponse);
-
-      setDMovieDetails(detailsResponse);
-      console.log(detailsResponse);
-      // console.log("getMovieDetails fired");
+      setMovieDetails(detailsResponse);
+      console.log("getMovieDetails fired");
+      console.log(movieDetails);
     } catch (error) {}
   };
 
+  // Sets the given value loadId to local storage for page refresh.
+  localStorage.setItem("reloadInfo", JSON.stringify(loadId));
+
+  // Retrieves the value from local storage and assigns to new variable.
+  let data = localStorage.getItem("reloadInfo");
+  const newLoadId = JSON.parse(data);
+  console.log(newLoadId);
   useEffect(() => {
-    console.log("details useEffect fired");
+    setLoadId(theMovie.id);
+    if (!theMovie.id) {
+      setLoadId(newLoadId.loadId);
+      getMovieDetails();
+      console.log("use Effect Fired");
+    }
     getMovieDetails();
-    console.log(movieDetails);
+    console.log(loadId);
   }, []);
 
-  let trailerKey = movieDetails.videos.results[0].key;
-  console.log("trailer is" + trailerKey);
-
+  //  Gets the trailer key from moviesDetails.
+  const trailerKey = movieDetails.videos.results[0].key;
   const trailerLink = `https://www.youtube.com/watch?v=${trailerKey}`;
 
   const poster = () => {
     if (theMovie.poster_path == null) {
-      return `https://variety.com/wp-content/uploads/2020/03/movie-theater-popcorn-placeholder.jpg?w=500`;
+      return `https://www.rabrotech.com/upload/default/image-not-found.png`;
     }
     return `https://image.tmdb.org/t/p/w500/${theMovie.poster_path}`;
   };

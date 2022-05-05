@@ -16,7 +16,7 @@ const Movie = ({
 }) => {
   const poster = () => {
     if (poster_path == null) {
-      return `https://variety.com/wp-content/uploads/2020/03/movie-theater-popcorn-placeholder.jpg?w=500`;
+      return `https://www.rabrotech.com/upload/default/image-not-found.png`;
     }
     return `https://image.tmdb.org/t/p/w500/${poster_path}`;
   };
