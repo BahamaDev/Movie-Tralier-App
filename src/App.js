@@ -37,6 +37,7 @@ function App() {
 
   // These varaibles and hooks manages the Fetch api parameters and viewing mode. Either fetch by Source or by Search.
   const apikey = "ab70d2cf01306700109f002f1cc8938a";
+  localStorage.setItem("apiKey", apikey);
 
   const byDiscover = {
     url: `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`,
@@ -55,7 +56,7 @@ function App() {
         discoverMode ? byDiscover.url : bySearch.url
       );
       const apiResponse = await response.json();
-
+      localStorage.setItem("movies", JSON.stringify(apiResponse));
       setResult(apiResponse);
     } catch (error) {}
   };
@@ -85,6 +86,7 @@ function App() {
   // Allows movie to be selected, and its summary to be accessed in selected movie component.
   const goToMovie = (id) => {
     // console.log(id);
+    let _id = localStorage.getItem("Mid");
     setSelectedMovie(id);
   };
 

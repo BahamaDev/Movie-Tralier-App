@@ -8,24 +8,27 @@ import { Link } from "react-router-dom";
 
 const SelectedMovie = ({ result, selectedMovie, apikey }) => {
   // Filters through result.results to match movie based on id, and assign to new variable.
-  const selected_movie = result.results.filter(
-    (item) => item.id === selectedMovie
-  );
 
+  let storedMovies = [JSON.parse(localStorage.getItem("movies"))];
+  let movieId = localStorage.getItem("Mid");
+
+  const selected_movie = storedMovies["0"].results.filter(
+    (x) => x.id == movieId
+  );
+  console.log(selected_movie);
   // Sets data template for loading page.
   const [movieDetails, setMovieDetails] = useState({
     videos: { results: [{ key: "Hello" }], vote_average: 1 },
   });
 
   // Identifies the particular movie.
-  // const theMovie = selected_movie[0] || {};
   const [theMovie, setTheMovie] = useState(selected_movie[0]);
-  console.log("theMovie", theMovie);
+  // console.log("theMovie", theMovie);
 
   // Allows movie ID to be determined base on the given conditions.
   const [loadId, setLoadId] = useState(theMovie.id);
 
-  const api_key = apikey;
+  const api_key = localStorage.getItem("apiKey");
   const URL = `https://api.themoviedb.org/3/movie/${loadId}?api_key=${api_key}&append_to_response=videos`;
 
   //  Fetches data from server
@@ -39,23 +42,21 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
     } catch (error) {}
   };
 
-  // Need to persist state on reload.
-  // Need to persist state on reload.
-  // Need to persist state on reload.
-  // Need to persist state on reload.
-  // Need to persist state on reload.
-
   useEffect(() => {
     setLoadId(theMovie.id);
-    localStorage.setItem("reloadInfo", JSON.stringify(theMovie));
     console.log("LOAD FIRED");
-
     getMovieDetails(); //connects the trailer videos to the existing interface.
   }, [theMovie]);
 
   //  Gets the trailer key from moviesDetails.
-  const trailerKey = movieDetails.videos.results[0].key;
-  const trailerLink = `https://www.youtube.com/watch?v=${trailerKey}`;
+  const trailerKey = () => {
+    if (!movieDetails.videos.results.length == 0) {
+      return movieDetails.videos.results[0].key;
+    } else {
+      return "8BNA-N717A0";
+    }
+  };
+  const trailerLink = `https://www.youtube.com/watch?v=${trailerKey()}`;
 
   const poster = () => {
     if (theMovie.poster_path == null) {
@@ -87,17 +88,21 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
           </div>
           <section className="selected-card-info">
             {" "}
-            <h2 className="selected-card-title">{theMovie.title}</h2>
+            <h2 className="selected-card-title">
+              {theMovie.title || <div>"No Info Available"</div>}
+            </h2>
             <div className="selected-card-subinfo">
               <h3 className="selected-card-year">
-                Released: {theMovie.release_date}
+                Released: {theMovie.release_date || <div>0</div>}
               </h3>{" "}
               <div className=" selected-card-rating">
                 <TiStar />
                 {theMovie.vote_average}
               </div>
             </div>
-            <div className="selected-card-description">{theMovie.overview}</div>
+            <div className="selected-card-description">
+              {theMovie.overview || <div>"No Info Available"</div>}
+            </div>
             {/* <FavIcon /> */}
             <a href={trailerLink} target="blank">
               <button className="play-button">WATCH TRAILER NOW</button>

@@ -23,7 +23,13 @@ const Movie = ({
 
   return (
     <>
-      <article onClick={() => goToMovie(id)} className="movie-card">
+      <article
+        onClick={() => {
+          localStorage.setItem("Mid", id);
+          goToMovie(id);
+        }}
+        className="movie-card"
+      >
         <NavLink to="/selected">
           <section className="movie-card-visual">
             {" "}
