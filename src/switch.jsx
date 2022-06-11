@@ -1,10 +1,12 @@
 import React from "react";
-// //// This component manages only the mode switch and its functionality.
+
+// //// This component manages only the mode toggle switch and its functionality.
+// //// This component manages only the mode toggle switch and its functionality.
 
 const Switch = ({ discoverMode, setDiscoverMode, getMovies }) => {
   const makeChange = () => {
     setDiscoverMode(!discoverMode);
-    console.log("changed mode to " + discoverMode);
+    // console.log("changed mode to " + discoverMode);
   };
 
   return (

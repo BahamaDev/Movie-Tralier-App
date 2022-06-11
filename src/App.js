@@ -6,7 +6,7 @@ import SelectedMovie from "./selected-movie";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  //Manages the value of the final value to be inserted into the URL in Search search Mode
+  //Manages the value of the final value to be inserted into the URL in search mode
   const [searchInURL, setSearchInURL] = useState("Halo");
   const [discoverMode, setDiscoverMode] = useState(true);
 
@@ -80,7 +80,7 @@ function App() {
     getMovies();
 
     // console.log(result);
-  }, [discoverMode, page, searchInURL, getMovies]);
+  }, [discoverMode, page, searchInURL]);
 
   // Allows movie to be selected, and its summary to be accessed in selected movie component.
   const goToMovie = (id) => {

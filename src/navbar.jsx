@@ -4,8 +4,8 @@ import React from "react";
 
 const Navbar = ({ setInputValue, inputValue, setSearch, setDiscoverMode }) => {
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
     setDiscoverMode(false);
+    setInputValue(e.target.value);
   };
 
   return (

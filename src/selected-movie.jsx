@@ -1,6 +1,6 @@
 import React from "react";
 import { TiChevronLeft, TiStar } from "react-icons/ti";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -18,8 +18,9 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
   });
 
   // Identifies the particular movie.
-  const theMovie = selected_movie[0] || {};
-  // console.log(theMovie);
+  // const theMovie = selected_movie[0] || {};
+  const [theMovie, setTheMovie] = useState(selected_movie[0]);
+  console.log("theMovie", theMovie);
 
   // Allows movie ID to be determined base on the given conditions.
   const [loadId, setLoadId] = useState(theMovie.id);
@@ -38,23 +39,19 @@ const SelectedMovie = ({ result, selectedMovie, apikey }) => {
     } catch (error) {}
   };
 
-  // Sets the given value loadId to local storage for page refresh.
-  localStorage.setItem("reloadInfo", JSON.stringify(loadId));
+  // Need to persist state on reload.
+  // Need to persist state on reload.
+  // Need to persist state on reload.
+  // Need to persist state on reload.
+  // Need to persist state on reload.
 
-  // Retrieves the value from local storage and assigns to new variable.
-  let data = localStorage.getItem("reloadInfo");
-  const newLoadId = JSON.parse(data);
-  console.log(newLoadId);
   useEffect(() => {
     setLoadId(theMovie.id);
-    if (!theMovie.id) {
-      setLoadId(newLoadId.loadId);
-      getMovieDetails();
-      console.log("use Effect Fired");
-    }
-    getMovieDetails();
-    console.log(loadId);
-  }, [getMovieDetails, loadId, newLoadId.loadId]);
+    localStorage.setItem("reloadInfo", JSON.stringify(theMovie));
+    console.log("LOAD FIRED");
+
+    getMovieDetails(); //connects the trailer videos to the existing interface.
+  }, [theMovie]);
 
   //  Gets the trailer key from moviesDetails.
   const trailerKey = movieDetails.videos.results[0].key;
